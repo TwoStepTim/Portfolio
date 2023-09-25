@@ -9,15 +9,17 @@ body, html {
 /* Navigation Bar */
 
 .navbar {
-    
+    background-color: black;
+    opacity: 30%;
     color: white;
     text-align: center;
     padding: 10px 0;
     position: fixed;
     top: 0;
     left: 0;
+    margin-left: 20vw;
     margin-top: 2vw;
-    width: 100%;
+    width: 50vw;
     z-index: 100;
 }
 
@@ -29,6 +31,7 @@ body, html {
 .navbar li {
     display: inline;
     margin: 0 15px;
+    opacity: 100%;
 }
 
 .navbar a {
@@ -38,6 +41,7 @@ body, html {
     transition: color 0.3s;
     word-spacing: 10px;
     font-size: 1.2vw;
+    opacity: 100%;
 }
 
 .navbar a:hover {
@@ -98,6 +102,15 @@ h1 {
     animation: flipWords 4s infinite; /* Word flipping animation */
 }
 
+.xp-container{
+    display: flex;
+    margin-left: 12vw;
+    margin-bottom: 500px;
+    
+}
+.Mobile {
+    width: 300px; /* Adjust the pixel value as needed */
+}
 
 @keyframes flipWords {
     0%, 25% {
@@ -131,18 +144,14 @@ h1 {
     }
 
     .xp-container {
+        object-fit: fill;
         flex-direction: column; /* Stack the items vertically */
         align-items: center; /* Center the items horizontally */
         margin-left: 0; /* Remove left margin */
         margin-bottom: 20px; /* Adjust margin as needed */
     }
-
+    
 }
 
 
 
-.xp-container{
-    display: inline-flex;
-    margin-left: 20vw;
-    margin-bottom: 500px;
-}
