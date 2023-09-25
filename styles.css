@@ -9,8 +9,8 @@ body, html {
 /* Navigation Bar */
 
 .navbar {
-    background-color: black;
-    opacity: 30%;
+    background-color: rgba(0,0,0,.5);
+   border-radius: 60px;
     color: white;
     text-align: center;
     padding: 10px 0;
