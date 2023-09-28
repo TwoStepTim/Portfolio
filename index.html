@@ -11,6 +11,9 @@
     <title>TimothyMims</title>
 </head>
 <body>
+    <input type="checkbox" id="sidebar-checkbox" style="display: none;">
+    <label class="hamburger" for="sidebar-checkbox">&#9776;</label>
+
     <nav class="navbar">
         <ul>
             <li><a href="#home">// home<sup>01</sup></a></li>
@@ -20,8 +23,18 @@
             <li><a href="#Resume">resume<sup>05</sup></a></li>
         </ul>
     </nav>
+     
     <!-- Home Section -->
     <section id= "home"class="home">
+        <nav class="navbar-home">
+            <ul>
+                <li><a href="#home">// home<sup>01</sup></a></li>
+                <li><a href="#expertise">// expertise<sup>02</sup></a></li>
+                <li><a href="#work">// work<sup>03</sup></a></li>
+                <li><a href="#contact">contact<sup>04</sup></a></li>
+                <li><a href="#Resume">resume<sup>05</sup></a></li>
+            </ul>
+        </nav>
         <div class="video-container">
             <video autoplay loop muted class="Video">
                 <source src="Codingvideo.mp4" type="video/mp4">
@@ -46,10 +59,29 @@
                 <img src="Mobile_dev.png" alt="">
             </div>
         </div>
-        
+    </section>
+    <section id= "work" class="work"></section>>
+        <h1>My Expertise</h1>
+        <div class="work-container">
+            <div class="C-sharp">
+                <img src="C#-Icon.png" alt="">
+            </div>
+            <div class="Python">
+                <img src="Python-Icon.png" alt="">
+            </div>
+            <div class="JS">
+                <img src="JS-Icon.png" alt="">
+            </div>
+            <div class="Html">
+                <img src="html-Icon.png" alt="">
+                <img src="CSS-Icon.png" alt="">
+            </div>
+        </div>
+
     </section>
     <!-- Add other sections (About, Portfolio, Contact) as needed -->
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
+    
 </body>
 </html>

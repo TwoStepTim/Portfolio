@@ -5,36 +5,81 @@ body, html {
     background-color: #1e1e1e;
     font-family: 'Raleway', sans-serif;
 }
+/* Sidebar Start------------------------------------------ */
 
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    transition: left 0.3s ease;
+    z-index: 99;
+  }
+  
+  .sidebar.open {
+    left: 0; /* Show the sidebar when open class is added */
+  }
+  
+  .sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 40px 20px;
+    display: block;
+  }
+  
+  .sidebar nav li {
+    margin-bottom: 20px;
+    font-size: 40px;
+   
+  }
+  
+  .sidebar nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Hamburger styles */
+  .hamburger {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 999;
+    display: none; /* Initially hidden on larger screens */
+    color: white;
+  }
+  /*Sidebar End------------------------------------------ */
 /* Navigation Bar */
-
-.navbar {
-    background-color: rgba(0,0,0,.5);
+.navbar-home{
+    background-color: rgba(0,0,0,1);
    border-radius: 60px;
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
     top: 0;
     left: 0;
-    margin-left: 20vw;
+    margin-left: 25vw;
     margin-top: 2vw;
     width: 50vw;
     z-index: 100;
 }
 
-.navbar ul {
+.navbar-home ul {
     list-style: none;
     padding: 0;
 }
 
-.navbar li {
+.navbar-home li {
     display: inline;
     margin: 0 15px;
     opacity: 100%;
 }
 
-.navbar a {
+.navbar-home a {
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -44,8 +89,68 @@ body, html {
     opacity: 100%;
 }
 
-.navbar a:hover {
+.navbar-home a:hover {
     color: #9d39e6; /* Color on hover */
+}
+.navbar{
+    background-color: rgba(0,0,0,1);
+   border-radius: 60px; 
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-left: 25vw;
+    margin-top: 2vw;
+    width: 25vw;
+    z-index: 100;
+    opacity: 0; /* Initially set opacity to 0 */
+    transform: translateY(-100%); /* Move the navbar up initially */
+    transition: opacity 0.5s, transform 0.5s; /* Add transitions for opacity and transform */
+}
+/* CSS class for animation */
+.animate {
+    animation: fadeInDown 0.5s ease-out; /* Add the animation */
+}
+
+/* Keyframes animation for fadeInDown */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    
+}
+
+.navbar li {
+    padding-bottom: 30px;
+    margin: 0 15px;
+    opacity: 100%;
+   
+}
+
+.navbar a {
+    
+    
+    text-decoration: none;
+    color: rgb(248, 171, 253);
+    font-weight: bold;
+    transition: color 0.3s;
+    word-spacing: 10px;
+    font-size: 1.2vw;
+    opacity: 100%;
+}
+
+.navbar a:hover {
+    color: #ff0000; /* Color on hover */
 }
 
 /* Style for superscript */
@@ -67,6 +172,11 @@ sup {
     height: 100%;
 }
 .expertise h1{
+    margin-top: 10vw;
+    text-align: center;
+    color: #ffffff;
+}
+.work h1{
     margin-top: 10vw;
     text-align: center;
     color: #ffffff;
@@ -104,9 +214,15 @@ h1 {
 
 .xp-container{
     display: flex;
-    margin-left: 12vw;
+    margin-left: 20vw;
     margin-bottom: 500px;
     
+}
+.work-container{
+    display: flex;
+    margin-left: 20vw;
+    margin-bottom: 500px;
+
 }
 .Mobile {
     width: 300px; /* Adjust the pixel value as needed */
@@ -126,7 +242,15 @@ h1 {
         opacity: 1;
     }
 }
-
+.hamburger {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 20px;
+    position: absolute; /* Position the hamburger icon */
+    top: 10px; /* Adjust the top position as needed */
+    left: 20px; /* Adjust the left position as needed */
+    z-index: 101; /* Ensure the hamburger is above the navbar */
+}
 
 @media (max-width: 1020px) {
     #video-background {
@@ -151,6 +275,68 @@ h1 {
         margin-bottom: 20px; /* Adjust margin as needed */
     }
     
+}
+@media (max-width: 1202px) {
+    .navbar{
+        background-color: rgba(0,0,0,1);
+       border-radius: 60px; 
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin-left: 25vw;
+        margin-top: 2vw;
+        width: 25vw;
+        z-index: 100;
+        opacity: 0; /* Initially set opacity to 0 */
+        transform: translateY(-100%); /* Move the navbar up initially */
+        transition: opacity 0.5s, transform 0.5s; /* Add transitions for opacity and transform */
+    }
+    /* CSS class for animation */
+    .animate {
+        animation: fadeInDown 0.5s ease-out; /* Add the animation */
+    }
+    
+    /* Keyframes animation for fadeInDown */
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .navbar ul {
+        list-style: none;
+        padding: 0;
+        
+    }
+    
+    .navbar li {
+        padding-bottom: 30px;
+        margin: 0 15px;
+        opacity: 100%;
+       
+    }
+    
+    .navbar a {
+        
+        
+        text-decoration: none;
+        color: rgb(248, 171, 253);
+        font-weight: bold;
+        transition: color 0.3s;
+        word-spacing: 10px;
+        font-size: 1.2vw;
+        opacity: 100%;
+    }
+    
+    .navbar a:hover {
+        color: #ff0000; /* Color on hover */
+    }
 }
 
 
