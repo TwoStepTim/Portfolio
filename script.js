@@ -75,7 +75,7 @@ function closeNavBar() {
     navbar_moblie.style.opacity = '0';
     navbar_moblie.style.transform = 'translateY(-100%)';
     hamburger.style.color = 'rgb(255, 255, 255)';
-    sidebarCheckbox.checked = false; // Uncheck the checkbox to close the navigation bar
+   // Uncheck the checkbox to close the navigation bar
 }
 
 hamburger.addEventListener('click', () => {
@@ -121,3 +121,22 @@ const videoObserver = new IntersectionObserver((entries, observer) => {
 videoObserver.observe(videoTrigger);
 
 
+const links = document.querySelectorAll('.navbar a');
+
+links.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        links.forEach(otherLink => {
+            if (otherLink !== link) {
+                otherLink.classList.add('darker');
+            }
+        });
+    });
+
+    link.addEventListener('mouseleave', () => {
+        links.forEach(otherLink => {
+            if (otherLink !== link) {
+                otherLink.classList.remove('darker');
+            }
+        });
+    });
+});

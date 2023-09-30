@@ -72,7 +72,7 @@ body, html {
 
 .hamburger {
     font-size: 24px;
-    color: #ff0000;
+    display: none;
     cursor: pointer;
     margin-left: 20px;
     position: absolute; /* Position the hamburger icon */
@@ -96,16 +96,14 @@ body, html {
 
 /* Navigation Bar Home Start----------------------------------------------------->*/ 
 .navbar-home{
-    background-color: rgba(0,0,0,1);
-   border-radius: 60px;
     color: white;
     text-align: center;
     padding: 10px 0;
     top: 0;
     left: 0;
-    margin-left: 25vw;
-    margin-top: 2vw;
-    width: 50vw;
+    margin-left: 17vw;
+    margin-top: 3vw;
+    width: 70vw;
     z-index: 100;
 }
 
@@ -126,12 +124,12 @@ body, html {
     font-weight: bold;
     transition: color 0.3s;
     word-spacing: 10px;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     opacity: 100%;
 }
 
 .navbar-home a:hover {
-    color: #9d39e6; /* Color on hover */
+    color: rgb(248, 171, 253);; /* Color on hover */
 }
 /* Navigation Bar Home End ----------------------------------------------------->*/
 /* Second Navigation Bar Start ----------------------------------------------------->*/
@@ -166,7 +164,8 @@ body, html {
 
 .navbar a {
     text-decoration: none;
-	color: rgb(248, 171, 253);
+	color: rgba(248, 171, 253,.6); /* Initial color for all links */
+    transition: color 0.3s; /* Add a smooth transition effect */
     font-weight: bold;
     transition: color 0.3s;
     word-spacing: 10px;
@@ -174,9 +173,22 @@ body, html {
     opacity: 100%;
 }
 
-.navbar a:hover {
-    color: #9d39e6; /* Color on hover */
+/* Default style for all links */
+
+
+/* Style for the links that are not being hovered over */
+.navbar:not(:hover) a {
+   color: rgba(248, 171, 253,1); /* Darker color for links when the navbar is not hovered over */
 }
+
+/* Override the color for the hovered link */
+.navbar a:hover {
+    color: white; /* Color on hover for the active link */
+}
+
+
+/* Override the color for the hovered link */
+
 /* CSS class for animation */
 .animate {
 	animation: fadeInDown 0.5s ease-out; /* Add the animation */
@@ -205,6 +217,7 @@ sup {
 
 .home{
     height: 80vh;
+    margin-bottom: 15vh;
 }
 .video-container {
     position: relative;
@@ -213,7 +226,7 @@ sup {
     height: 100%;
 }
 .expertise h1{
-    margin-top: 10vw;
+    margin-top: 10vh;
     text-align: center;
     color: #ffffff;
 }
@@ -233,7 +246,7 @@ sup {
 
 .content {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -243,6 +256,7 @@ sup {
 h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
+    
 }
 
 #word-flip {
@@ -253,21 +267,39 @@ h1 {
     animation: flipWords 4s infinite; /* Word flipping animation */
 }
 
-.xp-container{
+.xp-container {
     display: flex;
-    margin-left: 20vw;
+    flex-wrap: wrap; /* Allow items to wrap to the next row if needed */
+    justify-content: center; /* Center items horizontally */
+    margin-left: 0vw;
     margin-bottom: 500px;
-    
+    text-align: center; /* Center text horizontally */
 }
+
+.xp-container > div {
+    width: calc(33.33% - 210px); /* Set equal width for all items with spacing between them */
+    height: auto;
+    margin-top: 20px; /* Add some space between the rows */
+    position: relative; /* Position relative for centering */
+}
+
+.xp-container h1 {
+    
+    width: 100%; /* Ensure the h1 spans the full width of the container */
+}
+
+
 .work-container{
     display: flex;
     margin-left: 20vw;
     margin-bottom: 500px;
+    
 
 }
-.Mobile {
-    width: 300px; /* Adjust the pixel value as needed */
+.xp-container .Quote {
+    display: none;
 }
+
 
 @keyframes flipWords {
     0%, 25% {
@@ -286,13 +318,17 @@ h1 {
 .hamburger {
     font-size: 7vw;
     cursor: pointer;
-    display: block;
+    display: none;
     right: 90vw;
     color: #ffffff;
     z-index: 2201; /* Ensure the hamburger is above the navbar */
 }
 
-@media (max-width: 1020px) {
+/*Small Screens(Phones) Start------------------------------------------ */
+@media (min-width: 320px) and (max-width: 500px) {
+    .hamburger{
+        display: block;
+    }
     #video-background {
         
         width: 150%; /* Increase the width to crop from the sides */
@@ -314,19 +350,83 @@ h1 {
         object-fit: fill;
         flex-direction: column; /* Stack the items vertically */
         align-items: center; /* Center the items horizontally */
-        margin-left: 0; /* Remove left margin */
+        margin-right: 98vw; /* Remove left margin */
         margin-bottom: 20px; /* Adjust margin as needed */
     }
-    
-}
-@media (max-width: 1202px) {
     .navbar {
         
         display:none;   
     }
-    
-    
 }
 
+/*Meidum Screens(Tablets) Start------------------------------------------ */
 
+@media (min-width: 760px) and (max-width: 1120px){
+    .hamburger{
+        display: block;
+    }
+    #video-background {
+        
+        width: 150%; /* Increase the width to crop from the sides */
+        left: -10%; /* Shift to the left to crop the right side */
+        right: -80%; /* Shift to the right to crop the left side */
+    }
+    .Video {
+        align-self: center;
+        position: absolute;
+        right: 2vw;
+        top: 1vw;
+    }
+    .navbar-home{display: none;}
+    .navbar {display:none; }
+    .navbar_moblie a{
+        font-size: 4vw;
+    }
+    .navbar_moblie ul{
+        padding-top: 100px;
+    }
+    .xp-container {
+        flex-wrap: wrap; /* Allow items to wrap to the next row */
+        margin-left: 7vw;
 
+    }
+    
+    .xp-container .software,
+    .xp-container .frontend {
+        flex-basis: calc(50% - 10px); /* 50% width with spacing between items */
+    }
+    .xp-container .Quote,
+    .xp-container .Mobile {
+        flex-basis: calc(50% - 10px); /* Full width for the third image in the bottom row */
+        margin-top: 20px; /* Add some space between the rows */
+    }
+    .xp-container .Quote{
+        display: flex;
+    }
+
+    .frontend{
+        border: #ffffff;
+        
+    }
+}
+/*Meidum Screens(Tablets) End------------------------------------------ */
+@media (min-width: 1300px) and (max-width: 1900px){
+    .hamburger{
+        display: none;
+    }
+    .xp-container{
+        margin-left: 0vw;
+    }
+    .xp-container > div {
+        width: calc(33.33% - 100px);
+    }
+    body, html {
+        background-color: #212121;
+    }
+    .Video {
+        align-self: center;
+        position: absolute;
+        right: 2vw;
+        top: -5vw;
+    }
+}
