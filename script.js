@@ -143,30 +143,32 @@ links.forEach(link => {
 
 
 const scroller = document.querySelector('.scroller');
+const episodes = document.querySelector('.projects');
+const episodeItems = document.querySelectorAll('.project');
+const leftArrow = document.querySelector('.arrow.left');
+const rightArrow = document.querySelector('.arrow.right');
+const episodeWidth = episodeItems[0].offsetWidth;
 
-let startTouchX = 0;
+let currentIndex = 0;
 
-scroller.addEventListener('touchstart', (e) => {
-  startTouchX = e.touches[0].clientX;
-});
+leftArrow.addEventListener('click', () => scrollEpisodes(-1));
+rightArrow.addEventListener('click', () => scrollEpisodes(1));
 
-scroller.addEventListener('touchmove', (e) => {
-  const currentTouchX = e.touches[0].clientX;
-  const touchDelta = startTouchX - currentTouchX;
+function scrollEpisodes(direction) {
+  currentIndex += direction;
+  if (currentIndex < 0) {
+    currentIndex = episodeItems.length - 1;
+  } else if (currentIndex >= episodeItems.length) {
+    currentIndex = 0;
+  }
+  const offset = -currentIndex * episodeWidth;
+  episodes.style.transform = `translateX(${offset}px)`;
+}
 
-  // Adjust the scroll position based on touch movement
-  scroller.scrollLeft += touchDelta;
-
-  // Update the starting touch position
-  startTouchX = currentTouchX;
-
-  // Prevent the default touch scroll behavior
-  e.preventDefault();
-});
 // script.js
 
 
-
+let startTouchX = 0;
 
 scroller.addEventListener('touchstart', (e) => {
   startTouchX = e.touches[0].clientX;
@@ -188,3 +190,4 @@ scroller.addEventListener('touchmove', (e) => {
     e.preventDefault();
   }
 });
+
