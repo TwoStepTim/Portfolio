@@ -140,3 +140,51 @@ links.forEach(link => {
         });
     });
 });
+
+
+const scroller = document.querySelector('.scroller');
+
+let startTouchX = 0;
+
+scroller.addEventListener('touchstart', (e) => {
+  startTouchX = e.touches[0].clientX;
+});
+
+scroller.addEventListener('touchmove', (e) => {
+  const currentTouchX = e.touches[0].clientX;
+  const touchDelta = startTouchX - currentTouchX;
+
+  // Adjust the scroll position based on touch movement
+  scroller.scrollLeft += touchDelta;
+
+  // Update the starting touch position
+  startTouchX = currentTouchX;
+
+  // Prevent the default touch scroll behavior
+  e.preventDefault();
+});
+// script.js
+
+
+
+
+scroller.addEventListener('touchstart', (e) => {
+  startTouchX = e.touches[0].clientX;
+});
+
+scroller.addEventListener('touchmove', (e) => {
+  const currentTouchX = e.touches[0].clientX;
+  const touchDelta = startTouchX - currentTouchX;
+
+  // Check if there's significant horizontal touch movement before preventing default
+  if (Math.abs(touchDelta) > 10) {
+    // Adjust the scroll position based on touch movement
+    scroller.scrollLeft += touchDelta;
+
+    // Update the starting touch position
+    startTouchX = currentTouchX;
+
+    // Prevent the default touch scroll behavior
+    e.preventDefault();
+  }
+});
