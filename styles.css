@@ -292,7 +292,7 @@ h1 {
 .work-container{
     display: flex;
     margin-left: 20vw;
-    margin-bottom: 500px;
+    margin-bottom: 200px;
     
 
 }
@@ -332,7 +332,6 @@ h1 {
 
 
 
-
 .scroller {
     margin-top: 50px;
     position: relative;
@@ -340,18 +339,18 @@ h1 {
     left: 0vw;
     max-width: 2000px;
     overflow: hidden;
-  }
+}
   
-  .projects {
+.projects {
     display: flex;
     transition: transform 0.5s ease;
-  }
-  .project p{
+}
+.project p{
     color: #212121;
     font-weight: 900;
     font-size: 1vw;
-  }
-  .project {
+}
+.project {
     flex: 0 0 20%;
     padding: 20px;
     background-color: rgb(255, 255, 255);
@@ -359,29 +358,57 @@ h1 {
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .project:hover {
+}
+
+.project:hover {
     transform: scale(1.05) rotate(3deg);
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .arrows {
+}
+
+.arrows {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-   
-  }
+}
   
 
-  .arrow {
+.arrow {
     width: 30px;
     height: 40px;
     display: flex;
     cursor: pointer;
-  }
-  
+}
 
+.contact-container{
+    margin-left: 15vw;
+    margin-bottom: 200px;
+    color: #ffffff;
+    text-align: left;
+    width: 40vw;
+}
+.contact-container h3{
+    font-size: 2vw;
+}
+
+.SocialsNav li {
+    margin: 0 15px;
+    opacity: 100%;
+    padding-bottom: 20px;
+    list-style: none;
+}
+
+.SocialsNav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+    word-spacing: 10px;
+    font-size: 1.5vw;
+    opacity: 100%;
+}
+.SocialsNav a:hover {
+    color: rgb(248, 171, 253);; /* Color on hover */
+}
 /*Small Screens(Phones) Start------------------------------------------ */
 @media (min-width: 320px) and (max-width: 500px) {
     .hamburger{
@@ -443,6 +470,18 @@ h1 {
     .work  p{
         font-size: 5vw;
     }
+    .SocialsNav a{
+        font-size: 5vw;
+    }
+    .contact-container{
+        width: 70vw;
+    }
+    .contact-container h3{
+        font-size: 7vw;
+    }
+    .SocialsNav li{
+        margin-left: -15vw;
+    }
 }
 
 /*Meidum Screens(Tablets) Start------------------------------------------ */
@@ -492,7 +531,7 @@ h1 {
 
     .frontend{
         border: #ffffff;
-        
+
     }
 }
 /*Meidum Screens(Tablets) End------------------------------------------ */
