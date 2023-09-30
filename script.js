@@ -28,25 +28,37 @@ document.querySelectorAll('.navbar-inpage a').forEach(anchor => {
         }
     });
 });
-// Get references to the navbar and home section
 const navbar = document.querySelector(".navbar");
 const homeSection = document.querySelector(".home");
 const sidebarCheckbox = document.getElementById("sidebar-checkbox");
 
 // Function to toggle the visibility of the navbar based on scroll position
 function toggleNavbarVisibility() {
-    const homeSectionBottom = homeSection.getBoundingClientRect().bottom;
+    // Check the screen width here
+    if (window.innerWidth >= 1202) {
+        const homeSectionBottom = homeSection.getBoundingClientRect().bottom;
 
-    if (homeSectionBottom <= 0) {
-        navbar.style.display = "block"; // Show the navbar
-        navbar.style.opacity = "1"; // Make it fully visible
-        navbar.style.transform = "translateY(0)"; // Move it down
-        navbar.classList.add("animate"); // Add a class for animation
-    } else {
-        navbar.style.display = "none"; // Hide the navbar
-        navbar.classList.remove("animate"); // Remove the animation class
+        if (homeSectionBottom <= 0) {
+            navbar.style.display = "block"; // Show the navbar
+            navbar.style.opacity = "1"; // Make it fully visible
+            navbar.style.transform = "translateY(0)"; // Move it down
+            navbar.classList.add("animate"); // Add a class for animation
+        } else {
+            navbar.style.display = "none"; // Hide the navbar
+            navbar.classList.remove("animate"); // Remove the animation class
+        }
     }
 }
+
+// Add an event listener to run the function on scroll
+window.addEventListener("scroll", toggleNavbarVisibility);
+
+// Add an event listener to run the function on window resize
+window.addEventListener("resize", toggleNavbarVisibility);
+
+// Initial check when the page loads
+toggleNavbarVisibility();
+
 
 // Add an event listener to the window's scroll event
 window.addEventListener("scroll", toggleNavbarVisibility);
@@ -54,24 +66,58 @@ window.addEventListener("scroll", toggleNavbarVisibility);
 // Initial call to set the initial state based on the initial scroll position
 toggleNavbarVisibility();
 
-// Add an event listener to the hamburger icon checkbox
-sidebarCheckbox.addEventListener("change", function () {
-    if (this.checked) {
-        // If the checkbox is checked (hamburger icon is clicked), show the navbar
-        navbar.style.display = "block";
-        navbar.style.opacity = "1";
-        navbar.style.transform = "translateY(0)";
-        navbar.classList.add("animate");
+const hamburger = document.querySelector('.hamburger');
+const navbar_moblie = document.querySelector(".navbar_moblie");
+const navLinks = document.querySelectorAll('.nav-link'); // Select all navigation links
+
+// Function to close the navigation bar
+function closeNavBar() {
+    navbar_moblie.style.opacity = '0';
+    navbar_moblie.style.transform = 'translateY(-100%)';
+    hamburger.style.color = 'rgb(255, 255, 255)';
+    sidebarCheckbox.checked = false; // Uncheck the checkbox to close the navigation bar
+}
+
+hamburger.addEventListener('click', () => {
+    if (sidebarCheckbox.checked) {
+        closeNavBar();
     } else {
-        // If the checkbox is unchecked (hamburger icon is clicked again), hide the navbar
-        navbar.style.display = "none";
-        navbar.classList.remove("animate");
+        navbar_moblie.style.opacity = '1';
+        navbar_moblie.style.transform = 'translateY(0)';
+        hamburger.style.color = 'rgb(0, 0, 0)';
     }
 });
 
-const menuToggle = document.querySelector('.menu-toggle');
-
-menuToggle.addEventListener('click', () => {
-    sidebarCheckbox.checked = !sidebarCheckbox.checked; // Toggle the checkbox state
+// Add an event listener to each navigation link to close the navigation bar
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        closeNavBar(); // Call the function to close the navigation bar
+    });
 });
+
+
+
+const video = document.getElementById('background-video');
+const videoTrigger = document.getElementById('video-trigger');
+
+const options = {
+    root: null, // Use the viewport as the root
+    rootMargin: '0px',
+    threshold: 1, // Trigger when 50% of the element is in the viewport
+};
+
+const videoObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Video is in the viewport, play it
+            video.play();
+            // Stop observing to prevent multiple plays
+            observer.unobserve(videoTrigger);
+        }
+    });
+}, options);
+
+// Start observing the video trigger element
+videoObserver.observe(videoTrigger);
+
 

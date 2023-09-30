@@ -7,23 +7,41 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;900&display=swap" rel="stylesheet">
     <title>TimothyMims</title>
 </head>
 <body>
-    <input type="checkbox" id="sidebar-checkbox" style="display: none;">
-    <label class="hamburger" for="sidebar-checkbox">&#9776;</label>
+    <div class= sidebar>
+        <input type="checkbox" id="sidebar-checkbox" style="display: none;">
+        <label class="hamburger" for="sidebar-checkbox">&#9776;</label>
+        <nav class="navbar_moblie" id="myNavbar">
+            <ul>
+                <li><a href="#home" class="nav-link">// home<sup>01</sup></a></li>
+                <li><a href="#expertise" class="nav-link">// expertise<sup>02</sup></a></li>
+                <li><a href="#work" class="nav-link">// work<sup>03</sup></a></li>
+                <li><a href="#contact" class="nav-link">// contact<sup>04</sup></a></li>
+                <li><a href="#Resume" class="nav-link">// resume<sup>05</sup></a></li>
+            </ul>
+                <p>
+                    &copy 2023. Created with passion by Timothy Mims. 
+                    All rights reserved.
+                </p>
+        </nav>
+    </div>
+    <div class="SecondNavBar">
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">// home<sup>01</sup></a></li>
+                <li><a href="#expertise">// expertise<sup>02</sup></a></li>
+                <li><a href="#work">// work<sup>03</sup></a></li>
+                <li><a href="#contact">// contact<sup>04</sup></a></li>
+                <li><a href="#Resume">// resume<sup>05</sup></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="video-trigger"></div>
 
-    <nav class="navbar">
-        <ul>
-            <li><a href="#home">// home<sup>01</sup></a></li>
-            <li><a href="#expertise">// expertise<sup>02</sup></a></li>
-            <li><a href="#work">// work<sup>03</sup></a></li>
-            <li><a href="#contact">contact<sup>04</sup></a></li>
-            <li><a href="#Resume">resume<sup>05</sup></a></li>
-        </ul>
-    </nav>
-     
     <!-- Home Section -->
     <section id= "home"class="home">
         <nav class="navbar-home">
@@ -36,7 +54,7 @@
             </ul>
         </nav>
         <div class="video-container">
-            <video autoplay loop muted class="Video">
+            <video id="background-video" autoplay loop muted class="Video">
                 <source src="Codingvideo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>

@@ -4,56 +4,97 @@ body, html {
     padding: 0;
     background-color: #1e1e1e;
     font-family: 'Raleway', sans-serif;
+    overflow-x: hidden;
 }
-/* Sidebar Start------------------------------------------ */
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px; /* Initially hidden */
-    width: 250px;
-    height: 100%;
-    background-color: #333;
-    color: #fff;
-    transition: left 0.3s ease;
-    z-index: 99;
-  }
-  
-  .sidebar.open {
-    left: 0; /* Show the sidebar when open class is added */
-  }
-  
-  .sidebar nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 40px 20px;
-    display: block;
-  }
-  
-  .sidebar nav li {
-    margin-bottom: 20px;
-    font-size: 40px;
-   
-  }
-  
-  .sidebar nav a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  /* Hamburger styles */
-  .hamburger {
+/* Sidebar start */
+.navbar_moblie{
+    background-color: rgb(255, 255, 255);
+    text-align: center;
     position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 30px;
+    top:0;
+    left: 0;
+    margin-left: 0vw;
+    margin-top: 0vw;
+    height: 100vh;
+    width: 70vw;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+
+.animate {
+	animation: fadeInDown 0.5s ease-out; /* Add the animation */
+}
+
+
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.navbar_moblie ul {
+	list-style: none;
+	padding: 0;
+    padding-top: 50px;
+	
+}
+
+.navbar_moblie li {
+	padding-bottom: 20px;
+    text-align:justify;
+	margin: 0 15px;
+	opacity: 100%;
+}
+
+.navbar_moblie a {
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+	transition: color 0.3s;
+	word-spacing: 10px;
+	font-size: 5vw;
+	opacity: 100%;
+    font-weight: 300;
+}
+.navbar_moblie p{
+    font-size: 3vw;
+   padding: 5px;
+}
+
+.hamburger {
+    font-size: 24px;
+    color: #ff0000;
     cursor: pointer;
-    z-index: 999;
-    display: none; /* Initially hidden on larger screens */
-    color: white;
-  }
-  /*Sidebar End------------------------------------------ */
-/* Navigation Bar */
+    margin-left: 20px;
+    position: absolute; /* Position the hamburger icon */
+    top: 10px; /* Adjust the top position as needed */
+    left: 20px; /* Adjust the left position as needed */
+    z-index: 101; /* Ensure the hamburger is above the navbar */
+}
+/* Add a style for when the checkbox is checked */
+#sidebar-checkbox:checked + .navbar_moblie {
+    opacity: 1; /* Make it visible */
+    transform: translateY(0); /* Reset the transform to make it appear */
+}
+
+/* Style for the navigation bar when checkbox is unchecked */
+#sidebar-checkbox:not(:checked) + .navbar_moblie {
+    opacity: 0; /* Initially set opacity to 0 */
+    transform: translateY(-100%); /* Move the navbar up initially */
+    transition: opacity 0.5s, transform 0.5s; /* Add transitions for opacity and transform */
+}
+/* Sidebar End----------------------------------------------------->*/ 
+
+/* Navigation Bar Home Start----------------------------------------------------->*/ 
 .navbar-home{
     background-color: rgba(0,0,0,1);
    border-radius: 60px;
@@ -92,56 +133,40 @@ body, html {
 .navbar-home a:hover {
     color: #9d39e6; /* Color on hover */
 }
+/* Navigation Bar Home End ----------------------------------------------------->*/
+/* Second Navigation Bar Start ----------------------------------------------------->*/
 .navbar{
-    background-color: rgba(0,0,0,1);
-   border-radius: 60px; 
-    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+   border-radius: 60px;
+    color: white;
+    backdrop-filter: blur(10px);
     position: fixed;
+    text-align: center;
+    padding: 10px 0;
     top: 0;
     left: 0;
-    margin-left: 25vw;
-    margin-top: 2vw;
-    width: 25vw;
+    
+    width: 100vw;
     z-index: 100;
-    opacity: 0; /* Initially set opacity to 0 */
-    transform: translateY(-100%); /* Move the navbar up initially */
-    transition: opacity 0.5s, transform 0.5s; /* Add transitions for opacity and transform */
-}
-/* CSS class for animation */
-.animate {
-    animation: fadeInDown 0.5s ease-out; /* Add the animation */
-}
-
-/* Keyframes animation for fadeInDown */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-100%);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.5s, transform 0.5s;
 }
 
 .navbar ul {
     list-style: none;
     padding: 0;
-    
 }
 
 .navbar li {
-    padding-bottom: 30px;
+    display: inline;
     margin: 0 15px;
     opacity: 100%;
-   
 }
 
 .navbar a {
-    
-    
     text-decoration: none;
-    color: rgb(248, 171, 253);
+	color: rgb(248, 171, 253);
     font-weight: bold;
     transition: color 0.3s;
     word-spacing: 10px;
@@ -150,9 +175,24 @@ body, html {
 }
 
 .navbar a:hover {
-    color: #ff0000; /* Color on hover */
+    color: #9d39e6; /* Color on hover */
+}
+/* CSS class for animation */
+.animate {
+	animation: fadeInDown 0.5s ease-out; /* Add the animation */
 }
 
+/* Keyframes animation for fadeInDown */
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
 /* Style for superscript */
 sup {
     font-size: 0.6em; /* Adjust the font size as needed */
@@ -160,6 +200,7 @@ sup {
     top: -1em; /* Adjust the top value to move it higher */
     position: relative;
 }
+/* Second Navigation Bar End ----------------------------------------------------->*/
 /* Home Section with Video Background */
 
 .home{
@@ -243,13 +284,12 @@ h1 {
     }
 }
 .hamburger {
-    font-size: 24px;
+    font-size: 7vw;
     cursor: pointer;
-    margin-left: 20px;
-    position: absolute; /* Position the hamburger icon */
-    top: 10px; /* Adjust the top position as needed */
-    left: 20px; /* Adjust the left position as needed */
-    z-index: 101; /* Ensure the hamburger is above the navbar */
+    display: block;
+    right: 90vw;
+    color: #ffffff;
+    z-index: 2201; /* Ensure the hamburger is above the navbar */
 }
 
 @media (max-width: 1020px) {
@@ -267,6 +307,9 @@ h1 {
    
     }
 
+    .navbar-home{
+        display: none;
+    }
     .xp-container {
         object-fit: fill;
         flex-direction: column; /* Stack the items vertically */
@@ -277,66 +320,12 @@ h1 {
     
 }
 @media (max-width: 1202px) {
-    .navbar{
-        background-color: rgba(0,0,0,1);
-       border-radius: 60px; 
-        text-align: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        margin-left: 25vw;
-        margin-top: 2vw;
-        width: 25vw;
-        z-index: 100;
-        opacity: 0; /* Initially set opacity to 0 */
-        transform: translateY(-100%); /* Move the navbar up initially */
-        transition: opacity 0.5s, transform 0.5s; /* Add transitions for opacity and transform */
-    }
-    /* CSS class for animation */
-    .animate {
-        animation: fadeInDown 0.5s ease-out; /* Add the animation */
-    }
-    
-    /* Keyframes animation for fadeInDown */
-    @keyframes fadeInDown {
-        from {
-            opacity: 0;
-            transform: translateY(-100%);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    .navbar ul {
-        list-style: none;
-        padding: 0;
+    .navbar {
         
+        display:none;   
     }
     
-    .navbar li {
-        padding-bottom: 30px;
-        margin: 0 15px;
-        opacity: 100%;
-       
-    }
     
-    .navbar a {
-        
-        
-        text-decoration: none;
-        color: rgb(248, 171, 253);
-        font-weight: bold;
-        transition: color 0.3s;
-        word-spacing: 10px;
-        font-size: 1.2vw;
-        opacity: 100%;
-    }
-    
-    .navbar a:hover {
-        color: #ff0000; /* Color on hover */
-    }
 }
 
 
