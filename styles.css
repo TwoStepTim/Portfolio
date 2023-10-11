@@ -435,7 +435,7 @@ h1 {
         object-fit: fill;
         flex-direction: column; /* Stack the items vertically */
         align-items: center; /* Center the items horizontally */
-        margin-right: 98vw; /* Remove left margin */
+        margin-right: 93vw; /* Remove left margin */
         margin-bottom: 20px; /* Adjust margin as needed */
     }
     .navbar {

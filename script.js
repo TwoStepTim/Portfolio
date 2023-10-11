@@ -97,49 +97,7 @@ navLinks.forEach(link => {
 
 
 
-const video = document.getElementById('background-video');
-const videoTrigger = document.getElementById('video-trigger');
 
-const options = {
-    root: null, // Use the viewport as the root
-    rootMargin: '0px',
-    threshold: 1, // Trigger when 50% of the element is in the viewport
-};
-
-const videoObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Video is in the viewport, play it
-            video.play();
-            // Stop observing to prevent multiple plays
-            observer.unobserve(videoTrigger);
-        }
-    });
-}, options);
-
-// Start observing the video trigger element
-videoObserver.observe(videoTrigger);
-
-
-const links = document.querySelectorAll('.navbar a');
-
-links.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-        links.forEach(otherLink => {
-            if (otherLink !== link) {
-                otherLink.classList.add('darker');
-            }
-        });
-    });
-
-    link.addEventListener('mouseleave', () => {
-        links.forEach(otherLink => {
-            if (otherLink !== link) {
-                otherLink.classList.remove('darker');
-            }
-        });
-    });
-});
 
 
 const scroller = document.querySelector('.scroller');
